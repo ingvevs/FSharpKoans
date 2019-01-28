@@ -14,11 +14,12 @@ module ``about the order of evaluation`` =
     [<Koan>]
     let SometimesYouNeedParenthesisToGroupThings() =
         let add x y =
+            printfn "%d" (x + y)
             x + y
 
         let result = add (add 5 8) (add 1 1)
 
-        AssertEquality result __
+        AssertEquality result 15
 
         (* TRY IT: What happens if you remove the parenthesis?*)
 
@@ -30,6 +31,6 @@ module ``about the order of evaluation`` =
         let double x =
             x * 2
 
-        let result = double <| add 5 8
+        let result = double <| add 10 2
 
-        AssertEquality result __
+        AssertEquality result 24
